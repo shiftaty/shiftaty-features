@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHIFTATY — وصف المزايا الكاملة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#060b14;--s1:#0d1525;--s2:#111e33;--cyan:#00e5ff;--violet:#7c3aed;
+    --green:#00e676;--orange:#ff6d00;--text:#e8f0fe;--muted:#546e7a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl;}
+  body::before{content:'';position:fixed;inset:0;
+    background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);
+    background-size:40px 40px;pointer-events:none;z-index:0;}
+  .page{max-width:900px;margin:0 auto;padding:40px 24px 60px;position:relative;z-index:1;}
+
+  /* HEADER */
+  .header{text-align:center;padding:40px 0 46px;}
+  .badge{display:inline-block;background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4);
+    color:#a78bfa;font-size:.75rem;padding:5px 18px;border-radius:20px;
+    letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+  .logo{font-size:4.5rem;font-weight:900;letter-spacing:6px;color:var(--cyan);
+    text-shadow:0 0 20px rgba(0,229,255,0.5),0 0 50px rgba(0,229,255,0.2);
+    font-family:'Arial Black',Arial,sans-serif;line-height:1;margin-bottom:10px;}
+  .logo-line{width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),transparent);margin:0 auto 18px;}
+  .header p{font-size:1.1rem;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.8;}
+
+  /* NEW BADGE */
+  .new-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,230,118,0.1);
+    border:1px solid rgba(0,230,118,0.3);color:var(--green);font-size:.72rem;
+    font-weight:700;padding:4px 14px;border-radius:20px;margin-top:12px;}
+
+  /* INTRO */
+  .intro-card{background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(0,229,255,0.08));
+    border:1px solid rgba(0,229,255,0.2);border-radius:22px;padding:26px 30px;
+    margin-bottom:38px;font-size:.97rem;line-height:1.9;color:var(--text);}
+  .intro-card strong{color:var(--cyan);}
+
+  /* SECTION */
+  .section{margin-bottom:38px;}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;
+    padding-bottom:12px;border-bottom:1px solid rgba(0,229,255,0.1);}
+  .section-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;
+    justify-content:center;font-size:1.6rem;flex-shrink:0;}
+  .icon-cyan{background:linear-gradient(135deg,#0891b2,#00e5ff22);border:1px solid rgba(0,229,255,0.3);}
+  .icon-violet{background:linear-gradient(135deg,#7c3aed,#a855f722);border:1px solid rgba(124,58,237,0.3);}
+  .icon-green{background:linear-gradient(135deg,#00897b,#00e67622);border:1px solid rgba(0,230,118,0.3);}
+  .icon-orange{background:linear-gradient(135deg,#e65100,#ff6d0022);border:1px solid rgba(255,109,0,0.3);}
+  .icon-red{background:linear-gradient(135deg,#b71c1c,#ff174422);border:1px solid rgba(255,23,68,0.3);}
+  .icon-blue{background:linear-gradient(135deg,#1565c0,#1a73e822);border:1px solid rgba(26,115,232,0.3);}
+  .section-title{font-size:1.2rem;font-weight:900;color:var(--cyan);}
+  .section-sub{font-size:.8rem;color:var(--muted);margin-top:3px;}
+
+  /* GRID */
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:13px;}
+  .feature-card{background:var(--s1);border:1px solid rgba(0,229,255,0.07);
+    border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:border-color .25s;}
+  .feature-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;}
+  .feature-card.c::after{background:linear-gradient(90deg,var(--cyan),transparent);}
+  .feature-card.v::after{background:linear-gradient(90deg,var(--violet),transparent);}
+  .feature-card.g::after{background:linear-gradient(90deg,var(--green),transparent);}
+  .feature-card.o::after{background:linear-gradient(90deg,var(--orange),transparent);}
+  .feature-card:hover{border-color:rgba(0,229,255,0.2);}
+  .feature-emoji{font-size:1.8rem;margin-bottom:10px;}
+  .feature-title{font-size:.93rem;font-weight:800;color:var(--text);margin-bottom:6px;}
+  .feature-desc{font-size:.81rem;color:var(--muted);line-height:1.7;}
+  .feature-new{display:inline-block;background:rgba(0,230,118,0.12);border:1px solid rgba(0,230,118,0.3);
+    color:var(--green);font-size:.58rem;font-weight:900;padding:1px 7px;border-radius:8px;
+    margin-bottom:6px;letter-spacing:.5px;}
+
+  /* HIGHLIGHT */
+  .highlight{background:var(--s2);border:1px solid rgba(0,230,118,0.2);
+    border-right:4px solid var(--green);border-radius:14px;padding:16px 20px;
+    margin-top:14px;font-size:.88rem;line-height:1.8;color:var(--text);}
+  .highlight strong{color:var(--green);}
+
+  /* PAY GRID */
+  .pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  .pay-card{background:var(--s2);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;}
+  .tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;margin-bottom:8px;}
+  .tag-c{background:rgba(0,229,255,0.1);color:var(--cyan);border:1px solid rgba(0,229,255,0.2);}
+  .tag-v{background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2);}
+  .tag-g{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
+  .tag-o{background:rgba(255,109,0,0.1);color:var(--orange);border:1px solid rgba(255,109,0,0.2);}
+  .pay-card h4{font-size:.92rem;font-weight:800;margin-bottom:5px;}
+  .pay-card p{font-size:.78rem;color:var(--muted);line-height:1.6;}
+
+  /* PLANS */
+  .plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .plan-card{border-radius:20px;padding:26px;position:relative;overflow:hidden;}
+  .plan-card.free{background:var(--s1);border:1px solid rgba(0,229,255,0.15);}
+  .plan-card.paid{background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(0,229,255,0.1));border:1px solid rgba(0,229,255,0.3);}
+  .plan-badge{display:inline-block;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  .plan-badge.f{background:rgba(84,110,122,0.3);color:var(--muted);}
+  .plan-badge.p{background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;}
+  .plan-price{font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:5px;}
+  .plan-price.free-c{color:var(--muted);}
+  .plan-price.paid-c{color:var(--cyan);}
+  .plan-price-sub{font-size:.75rem;color:var(--muted);margin-bottom:20px;}
+  .plan-list{list-style:none;}
+  .plan-list li{padding:7px 0;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,0.05);
+    display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+  .plan-list li:last-child{border:none;}
+
+  /* STATS ROW */
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:38px;}
+  .stat{background:var(--s1);border:1px solid rgba(0,229,255,0.08);border-radius:16px;padding:18px 10px;text-align:center;}
+  .stat-num{font-size:2rem;font-weight:900;line-height:1;margin-bottom:6px;}
+  .stat-lbl{font-size:.7rem;color:var(--muted);font-weight:600;}
+  .stat.c .stat-num{color:var(--cyan);}
+  .stat.v .stat-num{color:#a78bfa;}
+  .stat.g .stat-num{color:var(--green);}
+  .stat.o .stat-num{color:var(--orange);}
+
+  /* CURRENCY TABLE */
+  .currency-table{background:var(--s2);border-radius:14px;padding:4px 0;overflow:hidden;margin-top:12px;}
+  .currency-row{display:flex;align-items:center;gap:10px;padding:9px 16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:.82rem;}
+  .currency-row:last-child{border:none;}
+  .currency-flag{font-size:1.1rem;width:24px;}
+  .currency-name{flex:1;color:var(--text);font-weight:600;}
+  .currency-code{color:var(--cyan);font-weight:800;font-size:.78rem;}
+
+  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,0.2),transparent);margin:38px 0;}
+  .footer{text-align:center;padding-top:28px;color:var(--muted);font-size:.82rem;border-top:1px solid rgba(0,229,255,0.08);}
+  .footer strong{color:var(--cyan);}
+  .cta-link{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--violet),var(--cyan));
+    color:#fff;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:50px;
+    text-decoration:none;letter-spacing:1px;box-shadow:0 0 20px rgba(0,229,255,0.25);transition:opacity .2s;}
+  .cta-link:hover{opacity:.88;}
+
+  @media(max-width:600px){
+    .logo{font-size:3rem;}
+    .features-grid{grid-template-columns:1fr;}
+    .pay-grid{grid-template-columns:1fr;}
+    .plans-grid{grid-template-columns:1fr;}
+    .stats-row{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">⚡ تطبيق تتبع الشيفتات</div>
+    <div class="logo">SHIFTATY</div>
+    <div class="logo-line"></div>
+    <p>التطبيق الأذكى لتتبع ساعات العمل وحساب المرتب — متصل وغير متصل بالإنترنت</p>
+    <div style="margin-top:22px;">
+      <a class="cta-link" href="https://shiftaty.github.io/shiftat/" target="_blank">🚀 جرِّب شيفتاتي الآن — مجاناً</a>
+    </div>
+    <div class="new-badge">✨ جديد — حفظ تلقائي على Firebase · Paymob · إحصائيات ذكية</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat c"><div class="stat-num">∞</div><div class="stat-lbl">أماكن عمل (مدفوع)</div></div>
+    <div class="stat v"><div class="stat-num">4</div><div class="stat-lbl">أنظمة دفع مختلفة</div></div>
+    <div class="stat g"><div class="stat-num">100%</div><div class="stat-lbl">يعمل بلا إنترنت</div></div>
+    <div class="stat o"><div class="stat-num">HD</div><div class="stat-lbl">تقارير وصور عالية الجودة</div></div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <strong>شيفتاتي (SHIFTATY)</strong> تطبيق متكامل صُمِّم خصيصاً للأطباء والعاملين في المجال الطبي من تمريض وأخصائيي التصوير الطبي والمختبرات والعاملين في أكثر من مكان أو بأنظمة دفع متنوعة. بدلاً من الأوراق والحسابات اليدوية، يوفِّر التطبيق طريقةً ذكيةً وسريعةً لتسجيل كل شيفت، وحساب الإجمالي والصافي، ومشاركة التقرير النهائي — كلُّ ذلك من جهازك المحمول أو الكمبيوتر وبلا حاجة لاتصال بالإنترنت.
+  </div>
+
+  <!-- 1. WORKPLACES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-cyan">🏥</div>
+      <div><div class="section-title">إدارة أماكن العمل</div><div class="section-sub">سجِّل كل مكان بإعداداته الخاصة</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card c"><div class="feature-emoji">🏥</div><div class="feature-title">إضافة أماكن غير محدودة</div><div class="feature-desc">سجِّل أكثر من مستشفى أو عيادة أو مكان عمل — لكلٍّ منها اسمه وسعره ونظام أجره المستقل.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">✏️</div><div class="feature-title">تعديل وحذف المكان</div><div class="feature-desc">يمكنك في أي وقت تعديل اسم المكان أو سعره، أو حذفه بالكامل مع جميع شيفتاته.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">⚙️</div><div class="feature-title">نظام الأجر لكل مكان</div><div class="feature-desc">لكل مكان عمل نظامه المستقل: بالساعة، أو بالشيفت، أو بالحالة، أو أي نظام مخصص.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">💰</div><div class="feature-title">سعر افتراضي لكل مكان</div><div class="feature-desc">يُحمَّل السعر تلقائياً عند تسجيل شيفت جديد — توفيرٌ للوقت وتجنُّبٌ لأخطاء الإدخال.</div></div>
+    </div>
+  </div>
+
+  <!-- 2. PAY SYSTEMS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-violet">💳</div>
+      <div><div class="section-title">أربعة أنظمة دفع مختلفة</div><div class="section-sub">لكل نوع عمل نظامه الخاص</div></div>
+    </div>
+    <div class="pay-grid">
+      <div class="pay-card"><span class="tag tag-c">بالساعة</span><h4>⏱️ أجر بالساعة</h4><p>أدخل عدد الساعات والسعر، ويحسب التطبيق الإجمالي فوراً. مناسب للعمل الساعي المرن.</p></div>
+      <div class="pay-card"><span class="tag tag-v">بالشيفت</span><h4>📋 أجر بالشيفت</h4><p>لكل شيفت سعر ثابت. أدخل العدد ويضرب التطبيق ويجمع تلقائياً.</p></div>
+      <div class="pay-card"><span class="tag tag-g">بالحالة</span><h4>🏥 أجر بالحالة</h4><p>مناسب للأطباء — عدد الحالات × سعر الحالة. سواء حالات عادية أو تكنيك أو غيرها.</p></div>
+      <div class="pay-card"><span class="tag tag-o">مخصص</span><h4>🔧 نظام مخصص</h4><p>تريد نظاماً مختلفاً؟ اختر "آخر"، وسمِّ الوحدة مثل "بالزيارة" أو "بالعملية"، وحدِّد السعر.</p></div>
+    </div>
+  </div>
+
+  <!-- 3. SHIFT LOGGING -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">➕</div>
+      <div><div class="section-title">تسجيل الشيفتات بتفصيل كامل</div><div class="section-sub">كل شيفت يُسجَّل بجميع تفاصيله</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card g"><div class="feature-emoji">📅</div><div class="feature-title">اختيار التاريخ</div><div class="feature-desc">حدِّد تاريخ الشيفت بدقة، ويرتِّب التطبيق الشيفتات تلقائياً من الأحدث إلى الأقدم.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">⚡</div><div class="feature-title">إضافة عناصر إضافية</div><div class="feature-desc">بخلاف الأجر الأساسي، أضف ساعات إضافية وحالات عادية وتكنيك وحالات أخرى — لكلٍّ منها سعره.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">➕</div><div class="feature-title">عناصر مخصصة بلا حدود</div><div class="feature-desc">أضف صفوفاً بأسماء مخصصة مثل "مناوبة طوارئ" أو "إضافي ليلي" بسعرها الخاص.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">👁️</div><div class="feature-title">معاينة الإجمالي لحظياً</div><div class="feature-desc">أثناء الإدخال، تعرض شاشة المعاينة الإجمالي المتوقع فورياً — قبل حفظ الشيفت.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">💬</div><div class="feature-title">ملاحظات للشيفت</div><div class="feature-desc">أضف أي ملاحظة مثل "مناوبة إضافية" أو "استبدال زميل" — تظهر في السجل والتقرير.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">✏️</div><div class="feature-title">تعديل وحذف الشيفتات</div><div class="feature-desc">أخطأت في إدخال شيفت؟ عدِّل كل تفاصيله أو احذفه بضغطة واحدة.</div></div>
+    </div>
+  </div>
+
+  <!-- 4. SHIFTS LOG -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📋</div>
+      <div><div class="section-title">سجل الشيفتات مع فلتر ذكي</div><div class="section-sub">ابحث وافرز بسهولة</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card c"><div class="feature-emoji">🔍</div><div class="feature-title">فلتر بالمكان</div><div class="feature-desc">اعرض شيفتات مكان واحد فقط من القائمة — تابع عملك في كل مكان باستقلالية.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">🗓️</div><div class="feature-title">فلتر بالشهر</div><div class="feature-desc">اختر شهراً محدداً واستعرض شيفتاته فقط — مفيد لتتبع الإنتاجية الشهرية.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">🏷️</div><div class="feature-title">عرض تفصيلي للشيفت</div><div class="feature-desc">يُعرض كل شيفت بوضوح: اسم المكان والتاريخ والتفاصيل والإجمالي — مع علامات ملونة مميزة.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">✕</div><div class="feature-title">مسح الفلتر بسرعة</div><div class="feature-desc">زر ✕ لمسح جميع الفلاتر والعودة لعرض كل الشيفتات في ثانية واحدة.</div></div>
+    </div>
+  </div>
+
+  <!-- 4b. STATS — UPDATED -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-violet">📊</div>
+      <div>
+        <div class="section-title">الإحصائيات الذكية <span style="background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.35);color:var(--green);font-size:.62rem;font-weight:900;padding:2px 8px;border-radius:8px;margin-right:8px;">جديد</span></div>
+        <div class="section-sub">أرقامك الحقيقية بدون انتظار</div>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card v">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">⚡</div>
+        <div class="feature-title">تحميل فوري عند الفتح</div>
+        <div class="feature-desc">الإحصائيات تظهر تلقائياً بمجرد فتح التاب — بدون ضغط أي زرار أو انتظار.</div>
+      </div>
+      <div class="feature-card v">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">🔋</div>
+        <div class="feature-title">ذكي في استهلاك Firebase</div>
+        <div class="feature-desc">التحميل الكامل للتاريخ بيحصل مرة واحدة بس في الجلسة — مش في كل مرة تضغط على الإحصائيات.</div>
+      </div>
+      <div class="feature-card v">
+        <div class="feature-emoji">🏆</div>
+        <div class="feature-title">أعلى شهر في المرتب</div>
+        <div class="feature-desc">يعرض الشهر الأعلى دخلاً مع شريط مقارنة بصري — يتحدث تلقائياً مع كل شيفت جديد.</div>
+      </div>
+      <div class="feature-card v">
+        <div class="feature-emoji">🏥</div>
+        <div class="feature-title">ترتيب الأماكن بالدخل</div>
+        <div class="feature-desc">يرتب أماكن عملك تنازلياً حسب إجمالي الدخل مع أشرطة نسبية ملونة لكل مكان.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. SUMMARY & SALARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">💰</div>
+      <div><div class="section-title">ملخص المرتب والحسابات</div><div class="section-sub">جميع أرقامك في مكان واحد</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card o"><div class="feature-emoji">📊</div><div class="feature-title">ملخص كلي شامل</div><div class="feature-desc">إجمالي الشيفتات والساعات والحالات وصافي المرتب — كل ذلك في نظرة واحدة.</div></div>
+      <div class="feature-card o"><div class="feature-emoji">🏥</div><div class="feature-title">تفاصيل لكل مكان</div><div class="feature-desc">اعرض الإجمالي والصافي لكل مكان عمل باستقلالية — مع إمكانية تحديد ضريبة وخصومات مختلفة لكل مكان.</div></div>
+      <div class="feature-card o"><div class="feature-emoji">🧾</div><div class="feature-title">حساب الضريبة</div><div class="feature-desc">حدِّد نسبة الضريبة الكلية أو لكل مكان على حدة — يخصمها التطبيق تلقائياً ويعرض الصافي.</div></div>
+      <div class="feature-card o"><div class="feature-emoji">✂️</div><div class="feature-title">الخصومات</div><div class="feature-desc">أضف خصومات بالقيمة المطلقة لكل مكان — مناسبٌ لخصم التأمين أو أي استقطاع آخر.</div></div>
+      <div class="feature-card o"><div class="feature-emoji">📅</div><div class="feature-title">فلتر زمني متقدم</div><div class="feature-desc">فلتر بشهر محدد، أو من تاريخ إلى تاريخ، أو عرض كل الوقت — لكل نطاق ملخصه الخاص.</div></div>
+      <div class="feature-card o"><div class="feature-emoji">🔄</div><div class="feature-title">فلتر مستقل للأماكن</div><div class="feature-desc">في عرض "لكل مكان" يمكنك تحديد فترة مستقلة عن فلتر الملخص الكلي.</div></div>
+    </div>
+    <div class="highlight">
+      <strong>💡 مثال عملي:</strong> إذا كنت تعمل في ثلاثة مستشفيات — لكلٍّ منها ضريبة مختلفة وخصومات مختلفة — يحسب شيفتاتي صافي كل مكان على حدة والإجمالي الكلي النهائي بضغطة واحدة.
+    </div>
+  </div>
+
+  <!-- 6. REPORTS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-red">📄</div>
+      <div><div class="section-title">التقارير والتصدير</div><div class="section-sub">شارك تقريرك باحترافية عالية</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card v"><div class="feature-emoji">🖨️</div><div class="feature-title">طباعة التقرير</div><div class="feature-desc">اطبع تقريرك مباشرةً من التطبيق — يُفتح في تبويب جديد بتصميم احترافي جاهز للطباعة.</div></div>
+      <div class="feature-card v"><div class="feature-emoji">📸</div><div class="feature-title">تصدير صورة Full HD</div><div class="feature-desc">احفظ تقريرك صورةً PNG بجودة 1920 بكسل — مناسبة للمشاركة عبر واتساب أو الحفظ على الجهاز.</div></div>
+      <div class="feature-card v"><div class="feature-emoji">📤</div><div class="feature-title">مشاركة فورية</div><div class="feature-desc">على الجهاز المحمول، يُفتح التقرير مباشرةً في قائمة المشاركة — اختر واتساب أو البريد الإلكتروني أو أي تطبيق آخر.</div></div>
+      <div class="feature-card v"><div class="feature-emoji">🎨</div><div class="feature-title">تصميم احترافي</div><div class="feature-desc">يُقدَّم التقرير بتصميم أنيق داكن بألوان مميزة لكل مكان وعرض واضح للأرقام والخصومات والصافي.</div></div>
+    </div>
+  </div>
+
+  <!-- 7. BACKUP — UPDATED -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">☁️</div>
+      <div>
+        <div class="section-title">الحفظ التلقائي والاستعادة <span style="background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.35);color:var(--green);font-size:.62rem;font-weight:900;padding:2px 8px;border-radius:8px;margin-right:8px;">جديد</span></div>
+        <div class="section-sub">بياناتك محفوظة تلقائياً ولا تضيع أبداً</div>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card g">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">☁️</div>
+        <div class="feature-title">حفظ تلقائي على Firebase</div>
+        <div class="feature-desc">بياناتك تُحفَظ تلقائياً على السحابة في كل تعديل — بدون أي إجراء من المستخدم.</div>
+      </div>
+      <div class="feature-card g">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">📧</div>
+        <div class="feature-title">استعادة بالإيميل</div>
+        <div class="feature-desc">لو اتمسحت بيانات المتصفح — ادخل بنفس الإيميل وهترجعلك كل شيفتاتك وأماكنك وإعداداتك تلقائياً.</div>
+      </div>
+      <div class="feature-card g">
+        <div class="feature-emoji">📤</div>
+        <div class="feature-title">تصدير نسخة يدوية</div>
+        <div class="feature-desc">احفظ نسخة JSON من بياناتك وارفعها على Google Drive أو iCloud كطبقة حماية إضافية.</div>
+      </div>
+      <div class="feature-card g">
+        <div class="feature-emoji">📥</div>
+        <div class="feature-title">استعادة من ملف</div>
+        <div class="feature-desc">اختر ملف النسخة الاحتياطية واستعد كل بياناتك في ثوانٍ على أي جهاز.</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <strong>💡 بكل راحة:</strong> مفيش تنبيهات أو رسائل تذكير بالنسخ الاحتياطي — التطبيق بيحفظ بياناتك على الكلاود تلقائياً كل 30 دقيقة وعند كل تعديل. لو فقدت جهازك أو مسحت المتصفح، ادخل بإيميلك وهترجعلك كل حاجة.
+    </div>
+  </div>
+
+  <!-- 8. CURRENCY — NEW -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">💱</div>
+      <div>
+        <div class="section-title">دعم متعدد العملات <span style="background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.35);color:var(--green);font-size:.62rem;font-weight:900;padding:2px 8px;border-radius:8px;margin-right:8px;">جديد</span></div>
+        <div class="section-sub">احسب مرتبك بعملتك المفضلة</div>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card o">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">💱</div>
+        <div class="feature-title">عملات متعددة</div>
+        <div class="feature-desc">اختر عملتك من قائمة شاملة تضم عملات المنطقة العربية والدولية — تظهر في التقارير والملخص.</div>
+      </div>
+      <div class="feature-card o">
+        <div class="feature-new">جديد</div>
+        <div class="feature-emoji">💾</div>
+        <div class="feature-title">تُحفَظ العملة تلقائياً</div>
+        <div class="feature-desc">يتذكر التطبيق اختيارك تلقائياً — لا داعي لإعادة الضبط في كل مرة تفتح فيها التطبيق.</div>
+      </div>
+    </div>
+    <div class="currency-table">
+      <div class="currency-row"><span class="currency-flag">🇪🇬</span><span class="currency-name">الجنيه المصري</span><span class="currency-code">EGP</span></div>
+      <div class="currency-row"><span class="currency-flag">🇸🇦</span><span class="currency-name">الريال السعودي</span><span class="currency-code">SAR</span></div>
+      <div class="currency-row"><span class="currency-flag">🇦🇪</span><span class="currency-name">الدرهم الإماراتي</span><span class="currency-code">AED</span></div>
+      <div class="currency-row"><span class="currency-flag">🇺🇸</span><span class="currency-name">الدولار الأمريكي</span><span class="currency-code">USD</span></div>
+      <div class="currency-row"><span class="currency-flag">🌍</span><span class="currency-name">وعملات أخرى...</span><span class="currency-code">+</span></div>
+    </div>
+  </div>
+
+  <!-- 9. SECURITY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-cyan">🔐</div>
+      <div><div class="section-title">الأمان والخصوصية <span style="background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.35);color:var(--green);font-size:.62rem;font-weight:900;padding:2px 8px;border-radius:8px;margin-right:8px;">جديد</span></div><div class="section-sub">بياناتك محمية ومشفَّرة على السحابة</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card c"><div class="feature-new">جديد</div><div class="feature-emoji">📧</div><div class="feature-title">تسجيل الدخول بالإيميل</div><div class="feature-desc">نظام Firebase Auth — سجّل بإيميلك وكلمة سر مرة واحدة، وادخل من أي جهاز في أي وقت.</div></div>
+      <div class="feature-card c"><div class="feature-new">جديد</div><div class="feature-emoji">☁️</div><div class="feature-title">بياناتك على السحابة</div><div class="feature-desc">كل شيفتاتك وأماكنك محفوظة على Firebase Firestore — لا تضيع لو اتمسح المتصفح أو غيّرت الجهاز.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">🛡️</div><div class="feature-title">تشفير AES-256</div><div class="feature-desc">جميع بياناتك محفوظة محلياً بتشفير AES-256 كطبقة حماية إضافية على جهازك.</div></div>
+      <div class="feature-card c"><div class="feature-emoji">🔑</div><div class="feature-title">استعادة التفعيل تلقائياً</div><div class="feature-desc">لو اتمسحت البيانات — ادخل بنفس الإيميل ويتعرّف على حسابك ويرجّعلك التفعيل والبيانات فوراً.</div></div>
+    </div>
+  </div>
+
+  <!-- 10. INSTALLATION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">📲</div>
+      <div><div class="section-title">التثبيت والتوافق</div><div class="section-sub">يعمل على جميع الأجهزة</div></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card g"><div class="feature-emoji">🤖</div><div class="feature-title">أندرويد</div><div class="feature-desc">ثبِّت التطبيق على هاتفك الأندرويد كـ PWA — يظهر على الشاشة الرئيسية مثل أي تطبيق عادي. يستلزم Chrome.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">🍎</div><div class="feature-title">iPhone / iPad</div><div class="feature-desc">افتح في Safari ← مشاركة ← إضافة إلى الشاشة الرئيسية. يعمل التطبيق بالكامل دون App Store.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">💻</div><div class="feature-title">سطح المكتب</div><div class="feature-desc">ثبِّته على الكمبيوتر من Chrome أو Edge — يُفتح كتطبيق مستقل بنافذته الخاصة.</div></div>
+      <div class="feature-card g"><div class="feature-emoji">📶</div><div class="feature-title">100% بلا إنترنت</div><div class="feature-desc">بعد التثبيت، يعمل التطبيق بالكامل دون اتصال بالإنترنت — جميع بياناتك محفوظة على جهازك مباشرةً.</div></div>
+    </div>
+  </div>
+
+  <!-- 11. LANGUAGE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-violet">🌐</div>
+      <div><div class="section-title">دعم لغتين كاملتين</div><div class="section-sub">عربي وإنجليزي مع تصميم RTL/LTR</div></div>
+    </div>
+    <div class="highlight" style="border-color:rgba(124,58,237,0.3);border-right-color:#a78bfa;">
+      <strong style="color:#a78bfa;">🌐 التبديل بين اللغتين:</strong> بضغطة زر "English" في الأعلى، يتحول التطبيق بالكامل إلى الإنجليزية — جميع النصوص والأزرار والملاحظات والتقارير. والضغطة التالية تعيده إلى العربية. تُحفَظ اللغة تلقائياً.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PLANS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">⭐</div>
+      <div><div class="section-title">خطط الاشتراك</div><div class="section-sub">ابدأ مجاناً، طوِّر عند الحاجة</div></div>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card free">
+        <div class="plan-badge f">مجاني</div>
+        <div class="plan-price free-c">0</div>
+        <div class="plan-price-sub">جنيه — للأبد</div>
+        <ul class="plan-list">
+          <li>✅ مكان عمل واحد</li>
+          <li>✅ شيفتات غير محدودة</li>
+          <li>✅ ملخص كامل وحسابات</li>
+          <li>✅ تصدير التقارير</li>
+          <li>✅ جميع أنظمة الدفع</li>
+          <li>✅ حفظ تلقائي على الكلاود</li>
+          <li>✅ نسخ احتياطي واستعادة</li>
+          <li>✅ دعم متعدد العملات</li>
+          <li>❌ تعدد الأماكن</li>
+        </ul>
+      </div>
+      <div class="plan-card paid">
+        <div class="plan-badge p">⭐ كامل</div>
+        <div class="plan-price paid-c">100</div>
+        <div class="plan-price-sub">جنيه — مرة واحدة فقط</div>
+        <ul class="plan-list">
+          <li>✅ أماكن عمل غير محدودة</li>
+          <li>✅ شيفتات غير محدودة</li>
+          <li>✅ ملخص كامل وحسابات</li>
+          <li>✅ تصدير التقارير</li>
+          <li>✅ جميع أنظمة الدفع</li>
+          <li>✅ حفظ تلقائي على الكلاود</li>
+          <li>✅ نسخ احتياطي واستعادة</li>
+          <li>✅ دعم متعدد العملات</li>
+          <li>✅ ضريبة وخصومات لكل مكان</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:16px;">
+      <strong>💳 طرق الدفع المتاحة:</strong> &nbsp; 📱 InstaPay &nbsp;|&nbsp; 📲 Vodafone Cash &nbsp;|&nbsp; 💳 Paymob &nbsp;— هتستلم كود التفعيل فور الدفع على واتساب.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>⚡ <strong>SHIFTATY</strong> — تتبَّع · احسب · أبلِّغ</p>
+    <p style="margin-top:14px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a class="cta-link" href="https://shiftaty.github.io/shiftat/" target="_blank" style="font-size:.85rem;padding:10px 24px;">
+        🔗 shiftaty.github.io/shiftat
+      </a>
+      <a class="cta-link" href="https://wa.me/201030391975?text=عايز أشترك في تطبيق SHIFTATY" target="_blank" style="font-size:.85rem;padding:10px 24px;background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 0 20px rgba(37,211,102,0.3);">
+        💬 تواصل الآن — 01030391975
+      </a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
